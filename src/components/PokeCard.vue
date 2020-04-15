@@ -1,6 +1,6 @@
 <template>
   <div class="pokecard row px-3 pb-5">
-    <div class="col-sm-12 col-md-6 col-lg-6 my-1 px-2" v-for="pokemon in pokemons.slice(0, 20)" :key="pokemon.name">
+    <div class="col-sm-12 col-md-6 col-lg-6 my-1 px-2" v-for="pokemon in pokemons.slice(0, 151)" :key="pokemon.name">
       <div class="card my-2 mx-1 text-center nes-container is-rounded p-1 nes-pointer" @click="setPokemonURL(pokemon.url)">
         <img class="mx-auto" :src="imageBaseURL + pokemon.id + '.png'" width="96px" height="96px">
         <div class="card-body">
