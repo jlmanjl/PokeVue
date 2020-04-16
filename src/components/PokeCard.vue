@@ -1,8 +1,8 @@
 <template>
   <div class="pokecard row px-3 pb-5">
     <div class="col-sm-12 col-md-6 col-lg-6 my-1 px-2" v-for="pokemon in pokemons.slice(0, 151)" :key="pokemon.name">
-      <div class="card my-2 mx-1 text-center nes-container is-rounded p-1 nes-pointer" @click="setPokemonURL(pokemon.url)">
-        <img class="mx-auto" :src="imageBaseURL + pokemon.id + '.png'" width="96px" height="96px">
+      <div class="card my-2 mx-1 text-center nes-container is-rounded p-1 nes-pointer" :class="{selected:pokemon.id == selected}" @click="setPokemonURL(pokemon.url); selected = pokemon.id">
+        <img class="mx-auto p-2 mt-4" :src="imageBaseURL + pokemon.id + '.png'" width="96px" height="96px">
         <div class="card-body">
           <p>{{ capitalize(pokemon.name) }}</p> 
           <P>#{{ pokemon.id }}</P>
@@ -19,6 +19,11 @@ export default {
     'pokemons',
     'imageBaseURL',
   ],  
+  data() {
+    return {
+      selected: undefined
+    }
+  },
   methods: {
     capitalize(string) {
       return string.charAt(0).toUpperCase() + string.slice(1);
@@ -26,7 +31,7 @@ export default {
     setPokemonURL(url) {
       this.$emit('setPokemonURL', url)
       console.log('pokemonURL has been emitted')
-    }
+    }, 
   }
 }
 </script>
@@ -55,6 +60,17 @@ export default {
 	-webkit-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 	-moz-transition: all 250ms cubic-bezier(.02, .01, .47, 1);
 	transition: all 250ms cubic-bezier(.02, .01, .47, 1);
+}
+
+.selected {
+  background-color: rgb(255, 67, 67);
+  color: white;
+  transition: 0.4s;
+}
+
+.selected img {
+  border-radius: 50%;
+  background-color: white;
 }
 
 ::-webkit-scrollbar {

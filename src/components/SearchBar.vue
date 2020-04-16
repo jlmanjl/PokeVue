@@ -1,9 +1,9 @@
 <template>
-    <div class="search-bar nes-field pt-0 my-2 px-2">
+    <div class="search-bar pt-0 my-3 px-2">
         <input
-            class="nes-input nes-container is-rounded"
+            class="py-3"
             type="text"
-            placeholder="Search..."
+            placeholder="Search Any Generation"
             v-model="searchQuery"
             @keyup="updateQuery"
 
@@ -34,13 +34,18 @@ export default {
     background: none;
 }
 
-/* .search-bar input{
+.search-bar input{
     text-align: center;
-    background: white;
-    border-radius: 24px;
-    font-size: 18px;
-    outline-width: 3px;
+    background: none;
+    color: rgb(255, 255, 255);
     border: none;
-    border-bottom: 5px rgb(255, 255, 255);
-} */
+    border-bottom: 1px solid rgb(211, 211, 211);
+    width: 100%;
+    transition: 0.4s;
+}
+
+.search-bar input:focus{
+    outline: none;
+    border-bottom-width: 3px;
+}
 </style>

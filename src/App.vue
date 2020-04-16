@@ -10,7 +10,6 @@
         <poke-detail 
           :imageBaseURL="imageBaseURL"
           :selectedPokemon="selectedPokemon"
-          :description="description"
         />
       </div>
       <div class="col-sm-12 col-lg-6">
@@ -54,9 +53,8 @@ export default {
       pokemons: [],
       imageBaseURL: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/',
       query: '',
-      pokemonURL: '',
+      pokemonURL: 'https://pokeapi.co/api/v2/pokemon/1',
       selectedPokemon: '',
-      description: ''
     }
   },
   methods: {
@@ -95,18 +93,6 @@ export default {
       console.log("PokemonURL has been set");
       this.fetchSelectedPokemonData(url);
     },
-    // fetchDescription() {
-    //   console.log('fetching selected pokemon description')
-    //   fetch(this.selectedPokemon.species.url)
-    //     .then(res => {
-    //       return res.json()})
-    //     .then(this.setDescription)
-    //   console.log('description fetch is successful')
-    // },
-    // setDescription(results) {
-    //   this.description = results;
-    //   console.log('description set');
-    // },
   },
   async created() {
     this.getPokemonData();
@@ -127,14 +113,14 @@ body {
   background-image: url('./assets/pokemon bg.png');
   background-position: center;
   background-size: cover;
-
-}
+  }
 
 .search-container {
   max-height: 600px;
   border-radius: 8px;
   background-color: rgb(39, 39, 39);
   outline: none;
+  box-shadow: 0 4px 8px 0 rgb(41, 41, 41), 0 6px 20px 0 rgb(12, 12, 12);
 }
 
 #app {
